@@ -79,6 +79,8 @@ int Vector::getDim(){
 }
 
 int& Vector::operator[](int poz){
+    if(poz < 0 || poz >= dim)
+    throw "EXCEPTION: index out of boundaries";
     return a[poz];
 }
 
@@ -334,7 +336,14 @@ try{
 
         cout<<err<<'\n';
     }
+try{
+    Vector v(3);
+    v[100];
+    }
+    catch(const char * err){
 
+        cout<<err<<'\n';
+    }
 
 
     return 0;
